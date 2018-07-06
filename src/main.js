@@ -21,6 +21,13 @@ import './lib/mui/css/mui.min.css'
 //导入 mui 扩展组件
 import './lib/mui/css/icons-extra.css'
 
+//定义格式时间的插件
+import moment from 'moment'
+//定义全局过滤器定义时间
+Vue.filter('dataForm',function(dataStr,pattern="YYYY-MM-DD HH:mm:ss"){
+    return moment(dataStr).format(pattern)
+})
+
 //  导入app 跟组件
 import App from './App.vue'
 
@@ -32,3 +39,5 @@ new Vue({
     render: h =>h(App),
     router, //挂载路由对象
 })
+
+
